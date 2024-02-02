@@ -16,7 +16,6 @@ jobs:
     - name: Build Docker images
       run: |
         echo $pwd;
-        cd server;
         docker-compose build;
 
     - name: Docker Compose Up
