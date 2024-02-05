@@ -15,10 +15,10 @@ jobs:
 
     - name: Build Docker images
       run: |
-        echo $pwd;
+        echo $(pwd);
         docker-compose build;
 
     - name: Docker Compose Up
       run: |
-        echo $pwd;
+        echo $(pwd);
         docker-compose up -d;
