@@ -14,8 +14,15 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Build Docker images
+      env:
+        MARIADB_DATA_VOLUME: ${{secrets.MARIADB_DATA_VOLUME}}
+        MYSQL_ROOT_PASSWORD: ${{secrets.MYSQL_ROOT_PASSWORD}}
+        MYSQL_DATABASE: ${{secrets.MYSQL_DATABASE}}
+        MYSQL_USER: ${{secrets.MYSQL_USER}}
+        MYSQL_PASSWORD: ${{secrets.MYSQL_PASSWORD}}
       run: |
         echo $(pwd);
+        echo "mariadb data: $MARIADB_DATA_VOLUME"
         docker-compose build;
 
     - name: Docker Compose Up
